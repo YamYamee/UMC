@@ -21,6 +21,7 @@ public class Review extends BaseEntity {
 
     private LocalDate date;
 
+    @Column(nullable = false, length = 500)
     private String content;
 
     private Integer likes;

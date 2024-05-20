@@ -3,8 +3,11 @@ package umc.spring.study.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import umc.spring.study.domain.common.BaseEntity;
+import umc.spring.study.domain.mapping.OngoingMission;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -17,6 +20,7 @@ public class Mission extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 500)
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -28,4 +32,7 @@ public class Mission extends BaseEntity {
     private Integer point;
 
     private LocalDate due_date;
+
+    /*@OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
+    private List<OngoingMission> OngoingMissionList = new ArrayList<>();*/
 }
